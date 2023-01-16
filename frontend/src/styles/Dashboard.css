@@ -1,0 +1,108 @@
+.dashboard-container{
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+/* styles for side-nav */
+
+.side-nav-div{
+    height: 100%;
+    width: 20%;
+    border-right: 3px solid #000;
+    display: flex;
+    flex-direction: column;
+}
+
+.side-nav-logo{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.side-nav-pic{
+    height: 70px;
+    width: 70px;
+}
+
+.nav-logo-text{
+    font-size: 25px;
+}
+
+.side-nav-links{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.side-nav-link{
+    text-decoration: none;
+    text-align: center;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 400;
+    border-bottom: 1px solid #000;
+    transition: 0.2s;
+}
+
+.side-nav-link:hover{
+    background-color: #000;
+    color: #fff;
+}
+
+.side-nav-link:first-child{
+    margin-top: 2%;
+    border-top: 1px solid #000;
+}
+
+.side-nav-link:nth-child(4){
+    border-top: 1px solid #000;
+    margin-top: auto;
+}
+
+/* styles for tasks div */
+
+.tasks-div{
+    width: 80%;
+    padding: 1%;
+}
+
+.user-name{
+    margin-bottom: 2%;
+    border-bottom: 1px solid #000;
+}
+
+.task-div{
+    margin-top: 2%;
+    padding: 1%;
+    width: 98%;
+    background-color: #e7e9f0;
+    border-radius: 10px;
+}
+
+.task-div:hover{
+    cursor: pointer;
+}
+
+.task-title{
+    padding-left: 2%;
+    padding-right: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #000;
+}
+
+.task-accordian{
+    /* display: none; */
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.plus-img{
+    height: 40px;
+    width: 40px;
+}

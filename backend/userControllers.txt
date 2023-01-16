@@ -1,0 +1,79 @@
+const userModel = require('../models/user.model');
+
+// For creating the user's account.
+exports.createUser = async (req, res) => {
+    try {
+        let {firstName, lastName, email, password, contact} = req.body;
+        
+        // to check if user has filled all the fields or not.
+        if(!firstName || !lastName || !email || !password || !contact){
+            res.status(400).send("Please fill in the complete details");
+        }
+        
+        // to check if user already exists or not.
+        const isExisting = await userModel.find({ email });
+        if(!isExisting){
+           res.status(400).send("User is already registered.");
+        }
+
+        // to create the user
+        const createdUser = await userModel.create({
+            firstName,
+            lastName,
+            email,
+            password,
+            contact
+        });
+
+        res.status(200).json({
+            "success": "true",
+            "message": "User created successfully.",
+            createdUser
+        })
+        
+    } catch (error) {
+        res.status(400).json({
+            "success": false,
+            "message": "Cannot create the user."
+        })
+        console.log(error);
+    }
+}
+
+// for user to log in.
+exports.loginUser = async (req, res) => {
+    try {
+        let { email, password } = req.body;
+
+        //To check if user has filled all the fields or not.
+        if(!email || !password){
+            res.status(400).send("Fill all the fields.");
+        }
+
+        //To compare the password from user
+        let foundUser = await userModel.findOne({ email });
+        
+        // if user id not found.
+        if(!foundUser){
+            res.status(404).send("User not found.");
+        }
+
+        // if password is incorrect.
+        if(password != foundUser.password){
+            res.status(400).send("incorrect password.")
+        }
+
+        res.status(200).json({
+            "success": true,
+            "message": "User logged in successfully.",
+            foundUser
+        });
+
+    } catch (error) {
+        res.status(400).json({
+            "success": false,
+            "message": "cannot log in user"
+        });
+        console.log(error);
+    }
+}

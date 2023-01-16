@@ -1,0 +1,204 @@
+.Home-Page-Container{
+    height: 100vh;
+}
+
+/* Styles for navbar */
+
+.nav-container{
+    padding-left: 2%;
+    padding-right: 2%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e7e9f0;
+}
+
+.nav-logo-div{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.nav-logo{
+    height: 70px;
+    width: 70px;
+}
+
+.nav-logo-name{
+    margin: 0;
+    font-size: 30px;
+}
+
+.nav-links-container{
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link{
+    text-decoration: none;
+    font-size: 20px;
+    color: #000;
+}
+
+/* styles for title */
+
+.title-container{
+    height: 100%;
+    background-image: url("/public/images/Home-Page-bg.jpg");
+}
+
+.image-overlay{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(83, 95, 128, 0.2);
+}
+
+.title-text{
+    margin: 0;
+    font-size: 60px;
+    color: #101010;
+}
+
+.title-sub-text{
+    margin-top: 1%;
+    font-size: 30px;
+    font-weight: 400;
+    color: #e7e9f0;
+}
+
+.title-btn{
+    padding: 1%;
+    padding-left: 4%;
+    padding-right: 4%;
+    text-decoration: none;
+    font-size: 20px;
+    color: #101010;
+    border: none;
+    border-radius: 50px;
+    background-color: #8A9EA7;
+}
+
+/* styles for quotes section */
+
+.quote-container{
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-right: 10%;
+    padding-left: 10%;
+}
+
+.quote{
+    font-size: 40px;
+    text-align: center;
+}
+
+.quote-said-by{
+    font-size: 28px;
+    text-align: center;
+}
+
+/* styles for about section */
+
+.about-container{
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 15%;
+    padding-right: 15%;
+    background-color: #e7e9f0;
+}
+
+.about-heading{
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.about-text{
+    font-size: 17px;
+    font-weight: 200;
+}
+
+/* styles for review section */
+
+.reviews-container{
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.review-cards{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.review-card{
+    height: 30%;
+    width: 35%;
+    background-color: #e7e9f0;
+    border-radius: 10px;
+}
+
+.card-body{
+    padding: 2%;
+    border-bottom: 1px solid #000;
+}
+
+.card-footer{
+    padding: 2%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.username{
+    margin: 0;
+    font-weight: 600;
+}
+
+.user-image{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+/* styles for footer */
+
+.footer{
+    margin-top: 3%;
+    padding-left: 5%;
+    padding-right: 5%;
+    background-color: #fff;
+}
+
+.footer-logo{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #000;
+}
+
+.social-icons{
+    width: 50%;
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+}
+
+.social-icon{
+    padding: 0.5%;
+    height: 35px;
+    width: 35px;
+    border: 3px solid #000;
+    border-radius: 50%;
+}
+
+.copyright{
+    margin-bottom: 2%;
+}

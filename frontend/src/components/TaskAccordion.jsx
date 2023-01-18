@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 
-function TaskAccordion({taskTitle}) {
+function TaskAccordion({todos}) {
 
   const [showAccordion, setShowAccordion] = useState(false);
 
   return (
     <div className="task-div">
         <div className="task-title">
-            <h1 className="task-heading">{taskTitle}</h1>
+            <h1 className="task-heading">{todos}</h1>
             <img src="/images/plus.svg" alt="plus.svg" className='plus-img' onClick={(event) => {setShowAccordion(!showAccordion)}}/>
         </div>
 

@@ -9,13 +9,14 @@ import axios from 'axios';
 function Dashboard() {
   const navigate = useNavigate();
   const [userDetails, setUserDetails] = useState("");
-  const [todos, setTodos] = useState("");
-  
+  const [todos, setTodos] = useState([]);
+
   // For getting the user's name and email from appwrite and todos from local api
   useEffect(() => {
     const getData = account.get();
     getData.then(response=>{setUserDetails(response)}, error => {console.log(error)});
-    getTodos().then(response => {setTodos(response)}, error => {console.log(error)});
+
+    getTodos();
   }, []);
   
   // For populating the todos
@@ -24,12 +25,14 @@ function Dashboard() {
     console.log(email.email);
     try {
       const todos = await axios.get("/todos/getTodos/" + email.email);
-      console.log(todos);
+      console.log(todos.data.todos);
+      setTodos([todos.data.todos]);
     } catch (error) {
       console.log(error);
     }
   }
 
+  console.log(todos);
 
   // For logging out the user
   const logoutUser = async () => {
@@ -68,8 +71,8 @@ function Dashboard() {
 
               {/* This div below contains all the tasks which we'll get from the DB */}
               {/* <TaskAccordion /> */}
-              {todos.map((currentElement) => {
-                <TaskAccordion key={currentElement.title} />
+              {todos && todos.map((currentElement) => {
+                return <TaskAccordion key={currentElement.title} {... currentElement}/>
               })}
         </div>
 

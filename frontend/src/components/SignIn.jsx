@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from "react";
-import { account, createAccount } from "../appwrite/appwrite-config";
+import { ID } from "appwrite";
+import { account } from "../appwrite/appwrite-config";
 import { useNavigate } from "react-router-dom";
 
 // The CSS comes from Login.css as i designed the login page first and pasted its code right here and modified it for the sign-up
@@ -15,6 +16,7 @@ function SignIn() {
       event.preventDefault();
       try {
           await account.create(
+            ID.unique(),
             email,
             password,
             name

@@ -5,32 +5,31 @@ import { useNavigate } from 'react-router-dom';
 import TaskAccordion from './TaskAccordion';
 import axios from 'axios';
 
+
 function Dashboard() {
   const navigate = useNavigate();
   const [userDetails, setUserDetails] = useState("");
+  const [todos, setTodos] = useState("");
+  
+  // For getting the user's name and email from appwrite and todos from local api
+  useEffect(() => {
+    const getData = account.get();
+    getData.then(response=>{setUserDetails(response)}, error => {console.log(error)});
+    getTodos().then(response => {setTodos(response)}, error => {console.log(error)});
+  }, []);
   
   // For populating the todos
   const getTodos = async () => {
+    const email = await account.get();
+    console.log(email.email);
     try {
-      const todos = await axios.get(`/getTodos/${userDetails.email}`);
+      const todos = await axios.get("/todos/getTodos/" + email.email);
       console.log(todos);
     } catch (error) {
       console.log(error);
     }
   }
 
-  const [todos, setTodos] = useState();
-  
-  useEffect(() => {
-    getTodos();
-  }, [todos])
-
-  // For getting the user's name and email from appwrite
-  useEffect(() => {
-    const getData = account.get();
-    getData.then(response=>{setUserDetails(response)}, error => {console.log(error)});
-  }, []);
-  
 
   // For logging out the user
   const logoutUser = async () => {
@@ -68,8 +67,9 @@ function Dashboard() {
               <h1 className="user-name">Hello {userDetails.name}</h1>
 
               {/* This div below contains all the tasks which we'll get from the DB */}
+              {/* <TaskAccordion /> */}
               {todos.map((currentElement) => {
-                <TaskAccordion key={currentElement} />
+                <TaskAccordion key={currentElement.title} />
               })}
         </div>
 

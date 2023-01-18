@@ -4,8 +4,12 @@ import Dashboard from './components/Dashboard';
 import HomePage from './components/HomePage';
 import Login from './components/Login';
 import SignIn from './components/SignIn';
+import axios from 'axios';
 
 function App() {
+
+  axios.defaults.baseURL = "http://localhost:4000"
+
   return (
     <BrowserRouter>
       <Routes>

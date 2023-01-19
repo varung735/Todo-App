@@ -26,7 +26,7 @@ function Dashboard() {
     try {
       const todos = await axios.get("/todos/getTodos/" + email.email);
       console.log(todos.data.todos);
-      setTodos([todos.data.todos]);
+      setTodos(...[todos.data.todos]);
     } catch (error) {
       console.log(error);
     }
@@ -72,7 +72,8 @@ function Dashboard() {
               {/* This div below contains all the tasks which we'll get from the DB */}
               {/* <TaskAccordion /> */}
               {todos && todos.map((currentElement) => {
-                return <TaskAccordion key={currentElement.title} {... currentElement}/>
+                console.log(currentElement.tasks);
+                return <TaskAccordion key={currentElement._id} title={currentElement.title} tasks={currentElement.tasks}/>
               })}
         </div>
 

@@ -106,3 +106,8 @@
     height: 40px;
     width: 40px;
 }
+
+.acc-controls{
+    display: flex;
+    gap: 10px;
+}

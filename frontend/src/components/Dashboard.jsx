@@ -11,14 +11,13 @@ function Dashboard() {
   const [userDetails, setUserDetails] = useState("");
   const [todos, setTodos] = useState([]);
 
-  // For getting the user's name and email from appwrite and todos from local api
+  // For getting the user's name and email from appwrite and calling the todos from local api
   useEffect(() => {
     const getData = account.get();
-    getData.then(response=>{setUserDetails(response)}, error => {console.log(error)});
-
+    getData.then(response=>{setUserDetails(response)}, error => {console.log(error)}); 
     getTodos();
   }, []);
-  
+
   // For populating the todos
   const getTodos = async () => {
     const email = await account.get();
@@ -73,7 +72,7 @@ function Dashboard() {
               {/* <TaskAccordion /> */}
               {todos && todos.map((currentElement) => {
                 console.log(currentElement.tasks);
-                return <TaskAccordion key={currentElement._id} title={currentElement.title} tasks={currentElement.tasks}/>
+                return <TaskAccordion key={currentElement._id} id={currentElement._id} title={currentElement.title} tasks={currentElement.tasks}/>
               })}
         </div>
 
